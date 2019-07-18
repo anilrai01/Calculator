@@ -1,3 +1,3 @@
 # Calculator
 Simple Calculator
-<img src="src/dark.png">
+<img src="src/calcUI.png">
