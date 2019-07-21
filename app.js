@@ -33,7 +33,12 @@ function doSomething(e){
             result.innerHTML = result.innerHTML += num;
         }
         else if (action == "cancel"){
-            result.innerHTML ="test;";
+            result.innerHTML= result.innerHTML.substring(0, result.innerHTML.length - 1);
+        }
+        else if (action == "clear"){
+            result.innerHTML= "";
+            expression.innerHTML = "";
+            operator.innerHTML = "";
         }
         else if (
             action === 'add' ||
@@ -64,7 +69,7 @@ function operate(operand1, operand2, operator){
         alert("Cannot operate on empty operand");
     }
     else{
-        console.log(operator);
+        // console.log(operator);
         operand1 = Number(operand1);
         operand2 = Number(operand2);
         if(operator == "add"){
