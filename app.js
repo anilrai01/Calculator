@@ -27,6 +27,10 @@ function doSomething(e){
         var expression = document.querySelector('#expression');
         var result = document.querySelector('#result');
         var operator = document.querySelector('#operator');
+        if(finished){
+            expression.innerHTML="";
+            finished=false;
+        }
         if(!action){
             // console.log('Numbr Key');
             const num = key.textContent;
@@ -66,7 +70,7 @@ function doSomething(e){
             expression.innerHTML = operate(expression.innerHTML,result.innerHTML,operator.innerHTML);
             result.innerHTML="";
             operator.innerHTML="";
-            // finished=true;
+            finished=true;
           }
     }
     // e.stopPropagation();
@@ -93,12 +97,13 @@ function operate(operand1, operand2, operator){
         else if(operator == "/"){
             result = operand1/operand2;
         }
+        if(result%1===0){
+            return result;
+        }
+        else{
+            return result.toFixed(2);
+            console.log(result);
+        }
     }
-    if(result%1===0){
-        return result;
-    }
-    else{
-        // return result.toFixed(2);
-        // console.log(result);
-    }
+    
 }
