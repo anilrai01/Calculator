@@ -30,6 +30,7 @@ function doSomething(e){
             // console.log('Numbr Key');
             const num = key.textContent;
             // console.log(num);
+            
             result.innerHTML = result.innerHTML += num;
         }
         else if (action == "cancel"){
@@ -72,17 +73,24 @@ function operate(operand1, operand2, operator){
         // console.log(operator);
         operand1 = Number(operand1);
         operand2 = Number(operand2);
+        var result;
         if(operator == "add"){
-            return operand1 + operand2;
+            result = operand1 + operand2;
         }
         else if(operator == "subtract"){
-            return operand1 - operand2;
+            result = operand1 - operand2;
         }
         else if(operator == "multiply"){
-            return operand1 * operand2;
+            result = operand1 * operand2;
         }
         else if(operator == "divide"){
-            return operand1/operand2;
+            result = operand1/operand2;
         }
+    }
+    if(result%1==0){
+        return result;
+    }
+    else{
+        return result.toFixed(2);
     }
 }
