@@ -46,12 +46,13 @@ body{
 	text-align: right;
 	display: grid;
 	align-items: center;
-	/* justify-content: right; */
+	
 }
-#result, #calculation{
+#result, #expression{
 	/* background: red; */
 	font-size: 30px;
 	width: 100%;
+	transition: all .5s;
 }
 .row1, .row2, .row3, .row4, .row5{
 	display: flex;

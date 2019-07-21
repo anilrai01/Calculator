@@ -14,7 +14,7 @@
 		<div class="calcBody">
 			
 			<div class="dispScreen">
-				<span id="calculation"></span>
+				<span id="expression"></span>
 				<span id="result"></span>
 			</div>
 
@@ -24,30 +24,30 @@
 					<div class="btn-operator gg">C</div>
 					<div class="btn-operator gg">CE</div>
 					<div class="btn-operator gg">%</div>
-					<div class="btn-operator">/</div>
+					<div class="btn-operator" data-action="divide">/</div>
 				</div>
 				<div class="row2">
 					<div class="btn-num">7</div>
 					<div class="btn-num">8</div>
 					<div class="btn-num">9</div>
-					<div class="btn-operator">x</div>
+					<div class="btn-operator"  data-action="multiply">x</div>
 				</div>
 				<div class="row3">
 					<div class="btn-num">4</div>
 					<div class="btn-num">5</div>
 					<div class="btn-num">6</div>
-					<div class="btn-operator">+</div>
+					<div class="btn-operator"  data-action="add">+</div>
 				</div>
 				<div class="row4">
 					<div class="btn-num">1</div>
 					<div class="btn-num">2</div>
 					<div class="btn-num">3</div>
-					<div class="btn-operator">-</div>
+					<div class="btn-operator" data-action="subtract">-</div>
 				</div>
 				<div class="row5">
 					<div class="btn-num test">0</div>
 					<!-- <div class="btn-num">0</div> -->
-					<div class="btn-num" id="sagar">.</div>
+					<div class="btn-num" id="sagar"  data-action="decimal">.</div>
 					<div class="btn-operator">=</div>
 				</div>
 			</div>

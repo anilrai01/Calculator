@@ -22,31 +22,41 @@ row5.addEventListener("click",doSomething, false);
 function doSomething(e){
     if (e.target !== e.currentTarget){
         var clickeditem = e.target.innerText;
-        var dispScreen = document.querySelector('#result');
-        var calc = dispScreen.innerHTML;
+        var result = document.querySelector('#result');
+        var expression = document.querySelector('#expression');
+        var calc = result.innerHTML;
         if(clickeditem == 'CE'){
-            dispScreen.innerHTML="";
+            result.innerHTML="";
+            expression.innerHTML="";
         }
         else if(clickeditem == 'C'){
-            dispScreen.innerHTML= calc.substring(0, calc.length - 1);
+            result.innerHTML= calc.substring(0, calc.length - 1);
         }
         else if (clickeditem == '='){
             calculate();
         }
         else{
-            dispScreen.innerHTML += clickeditem;
+            result.innerHTML += clickeditem;
         }
     }
     // e.stopPropagation();
 }
 function calculate(){
+    var expression = document.querySelector('#expression');
     
-    var expression = document.querySelector('#result').innerHTML;
-    if(expression == ''){
+    var result = document.querySelector('#result');
+    expression.innerHTML = result.innerHTML;
+    result.innerHTML='';
+    var exp = expression.innerHTML;
+    
+    if(expression.innerHTML == ''){
         alert("Empty Operation");
     }
     else{
-        console.log(expression);
+        exp.forEach(char => {
+            console.log(char);
+        });
+        console.log(exp)
     }
     
 };
