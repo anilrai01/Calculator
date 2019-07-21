@@ -18,6 +18,7 @@ row3.addEventListener("click",doSomething, false);
 row4.addEventListener("click",doSomething, false);
 row5.addEventListener("click",doSomething, false);
 
+var finished=false;
 
 function doSomething(e){
     if (e.target !== e.currentTarget){
@@ -52,7 +53,8 @@ function doSomething(e){
                 expression.innerHTML = result.innerHTML;
             }
             else{
-                expression.innerHTML = operate(expression.innerHTML,result.innerHTML,action);
+                
+                expression.innerHTML = operate(expression.innerHTML,result.innerHTML,key.textContent);
                 // console.log(action);
             }
             result.innerHTML="";
@@ -60,7 +62,12 @@ function doSomething(e){
             operator.innerHTML=oper;
             // console.log(operator);
           }
-
+          else if (action === 'equal'){
+            expression.innerHTML = operate(expression.innerHTML,result.innerHTML,operator.innerHTML);
+            result.innerHTML="";
+            operator.innerHTML="";
+            // finished=true;
+          }
     }
     // e.stopPropagation();
 }
@@ -74,23 +81,24 @@ function operate(operand1, operand2, operator){
         operand1 = Number(operand1);
         operand2 = Number(operand2);
         var result;
-        if(operator == "add"){
+        if(operator == "+"){
             result = operand1 + operand2;
         }
-        else if(operator == "subtract"){
+        else if(operator == "-"){
             result = operand1 - operand2;
         }
-        else if(operator == "multiply"){
+        else if(operator == "x"){
             result = operand1 * operand2;
         }
-        else if(operator == "divide"){
+        else if(operator == "/"){
             result = operand1/operand2;
         }
     }
-    if(result%1==0){
+    if(result%1===0){
         return result;
     }
     else{
-        return result.toFixed(2);
+        // return result.toFixed(2);
+        // console.log(result);
     }
 }
