@@ -21,42 +21,63 @@ row5.addEventListener("click",doSomething, false);
 
 function doSomething(e){
     if (e.target !== e.currentTarget){
-        var clickeditem = e.target.innerText;
-        var result = document.querySelector('#result');
+        const key = e.target;
+        const action = key.dataset.action;
         var expression = document.querySelector('#expression');
-        var calc = result.innerHTML;
-        if(clickeditem == 'CE'){
+        var result = document.querySelector('#result');
+        var operator = document.querySelector('#operator');
+        if(!action){
+            // console.log('Numbr Key');
+            const num = key.textContent;
+            // console.log(num);
+            result.innerHTML = result.innerHTML += num;
+        }
+        else if (action == "cancel"){
+            result.innerHTML ="test;";
+        }
+        else if (
+            action === 'add' ||
+            action === 'subtract' ||
+            action === 'multiply' ||
+            action === 'divide'
+          ) {
+            // console.log('operator key!')
+            if(expression.innerHTML == ""){
+                expression.innerHTML = result.innerHTML;
+            }
+            else{
+                expression.innerHTML = operate(expression.innerHTML,result.innerHTML,action);
+                // console.log(action);
+            }
             result.innerHTML="";
-            expression.innerHTML="";
-        }
-        else if(clickeditem == 'C'){
-            result.innerHTML= calc.substring(0, calc.length - 1);
-        }
-        else if (clickeditem == '='){
-            calculate();
-        }
-        else{
-            result.innerHTML += clickeditem;
-        }
+            let oper = key.textContent;
+            operator.innerHTML=oper;
+            // console.log(operator);
+          }
+
     }
     // e.stopPropagation();
 }
-function calculate(){
-    var expression = document.querySelector('#expression');
-    
-    var result = document.querySelector('#result');
-    expression.innerHTML = result.innerHTML;
-    result.innerHTML='';
-    var exp = expression.innerHTML;
-    
-    if(expression.innerHTML == ''){
-        alert("Empty Operation");
+
+function operate(operand1, operand2, operator){
+    if(operand1 == ""){
+        alert("Cannot operate on empty operand");
     }
     else{
-        exp.forEach(char => {
-            console.log(char);
-        });
-        console.log(exp)
+        console.log(operator);
+        operand1 = Number(operand1);
+        operand2 = Number(operand2);
+        if(operator == "add"){
+            return operand1 + operand2;
+        }
+        else if(operator == "subtract"){
+            return operand1 - operand2;
+        }
+        else if(operator == "multiply"){
+            return operand1 * operand2;
+        }
+        else if(operator == "divide"){
+            return operand1/operand2;
+        }
     }
-    
-};
+}
