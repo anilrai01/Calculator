@@ -6,64 +6,52 @@
 </head>
 <link rel="stylesheet" href="style.css">
 <body>
-	
-
 	<div class="container">
-		
-
 		<div class="calcBody">
-			
-			<div class="result">
-				<div class="history">
-					<p id="history-value"></p>	
-				</div>
-				<div class="output">
-					<p id="output-value">1</p>
-				</div>	
-			</div>
+			<div class="dispScreen">
+				<span id="expression"></span>
+				<span id="operator"></span>
+				<span id="result"></span>
 
+			</div>
 			<div class="btns">
-				
 				<div class="row1">
-					<div class="btn-operator gg" data-del>CE</div>
-					<div class="btn-operator gg" data-all-clear>AC</div>
-					<div class="btn-operator gg">%</div>
-					<div class="btn-operator" data-operation>/</div>
+
+					<div class="btn-operator gg" data-action="cancel">C</div>
+					<div class="btn-operator gg" data-action="clear">CE</div>
+					<div class="btn-operator gg" data-action="percent">%</div>
+					<div class="btn-operator" data-action="divide">/</div>
 				</div>
 				<div class="row2">
-					<div class="btn-num" data-number>7</div>
-					<div class="btn-num" data-number>8</div>
-					<div class="btn-num" data-number>9</div>
-					<div class="btn-operator" data-operation>x</div>
+					<div class="btn-num">7</div>
+					<div class="btn-num">8</div>
+					<div class="btn-num">9</div>
+					<div class="btn-operator"  data-action="multiply">x</div>
 				</div>
 				<div class="row3">
-					<div class="btn-num" data-number>4</div>
-					<div class="btn-num" data-number>5</div>
-					<div class="btn-num" data-number>6</div>
-					<div class="btn-operator" data-operation>+</div>
+					<div class="btn-num">4</div>
+					<div class="btn-num">5</div>
+					<div class="btn-num">6</div>
+					<div class="btn-operator"  data-action="add">+</div>
 				</div>
 				<div class="row4">
-					<div class="btn-num" data-number>1</div>
-					<div class="btn-num" data-number>2</div>
-					<div class="btn-num" data-number>3</div>
-					<div class="btn-operator" data-operation>-</div>
+					<div class="btn-num">1</div>
+					<div class="btn-num">2</div>
+					<div class="btn-num">3</div>
+					<div class="btn-operator" data-action="subtract">-</div>
+
 				</div>
 				<div class="row5">
 					<div class="btn-num test" data-number>0</div>
 					<!-- <div class="btn-num">0</div> -->
-					<div class="btn-num" data-number>.</div>
-					<div class="btn-operator" data-equals>=</div>
+
+					<div class="btn-num" id="sagar">.</div>
+					<div class="btn-operator" data-action="equal">=</div>
+
 				</div>
-
-
 			</div>
-
 		</div>
-
-
 	</div>
-
-
 	<script src="app.js"></script>
 </body>
 </html>

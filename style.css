@@ -42,25 +42,19 @@ body{
 	background: #ddd;
 	border-radius: 20px;
 	margin-top: 10px;
-	font-size: 25px;
-	padding: 10px;
 
-	display: flex;
-	flex-direction: column;
-	overflow: hidden;
-}
-.history, .output{
-	height: 40px;
+	color: #fff;
 	text-align: right;
+	display: grid;
+	align-items: center;
+	
 }
-.history{
-	color: #747474;
+#result, #expression{
+	/* background: red; */
+	font-size: 30px;
+	width: 100%;
+	transition: all .5s;
 }
-.output{
-	font-size: 45px;
-	margin-top: 20px;
-}
-
 
 .row1, .row2, .row3, .row4, .row5{
 	display: flex;
@@ -85,6 +79,7 @@ body{
 	height: 70px;
 	background: #ddd;
 	border-radius: 50%;
+	cursor: pointer;
 	font-size: 25px;
 	color: #fff;
 	cursor: pointer;
