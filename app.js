@@ -1,3 +1,4 @@
+
 var row1 = document.querySelector('.row1');
 var row2 = document.querySelector('.row2');
 var row3 = document.querySelector('.row3');
