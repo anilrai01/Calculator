@@ -12,14 +12,27 @@ var operArray = Array.from(operators);
 var startCalculation = (function() {
   var expressionArray = [];
   let expressString = "";
+  let ansStatus = false;
 
   numArray.forEach(el =>
     el.addEventListener("click", () => {
       if (expressionArray.includes(".") && el.innerHTML === ".") {
+        // console.log("fist If");
+
         return -1;
       } else {
-        hist.innerHTML = "";
-        conCat_(el.innerHTML);
+        if (expressionArray.length == "1" && ansStatus == true) {
+          reset();
+          ansStatus = false;
+          //   console.log(ansStatus);
+          hist.innerHTML = "";
+          conCat_(el.innerHTML);
+          //   console.log(expressionArray);
+        } else {
+          hist.innerHTML = "";
+          conCat_(el.innerHTML);
+          //   console.log(expressString);
+        }
       }
     })
   );
@@ -44,25 +57,38 @@ var startCalculation = (function() {
     hist.innerHTML = "";
 
     reset();
-    console.log(expressString);
-    console.log(expressionArray);
+    // console.log(expressString);
+    // console.log(expressionArray);
   });
 
   ans.addEventListener("click", () => {
     result.innerHTML = "";
     history.innerHTML = "";
-    var ans = eval(expressString);
+    var ans = "";
+    try {
+      ans = eval(expressString);
+    } catch (err) {
+      ans = "Math Error";
+    }
+
     hist.innerHTML = expressString;
     result.innerHTML = ans;
     // Resetting Array and Strings
     expressionArray = [ans];
-    console.log(expressionArray);
+    // console.log(expressionArray);
     expressString = String(ans);
-    console.log(expressString);
+    // console.log(expressString);
+    ansStatus = true;
+    // console.log(ansStatus);
   });
 
   var clearScreen = () => {
-    expressionArray.pop();
+    if (expressionArray.length == 1) {
+      expressionArray[0] = Math.floor(expressionArray[0] / 10);
+    } else {
+      expressionArray.pop();
+    }
+    // console.log(expressionArray);
 
     expressString = expressString.substring(0, expressString.length - 1);
     display(expressString);
