@@ -40,10 +40,28 @@ var startCalculation = (function() {
     clearScreen();
   });
 
-  var clearScreen = () => {
-    console.log("helo");
-    expressionArray.pop();
+  c.addEventListener("click", () => {
+    result.innerHTML = "";
+    hist.innerHTML = "";
+
+    expressionArray = [];
+    expressString = "";
+    console.log(expressString);
     console.log(expressionArray);
+  });
+
+  ans.addEventListener("click", () => {
+    result.innerHTML = "";
+    history.innerHTML = "";
+    var ans = eval(expressString);
+    hist.innerHTML = expressString;
+    result.innerHTML = ans;
+  });
+
+  var clearScreen = () => {
+    // console.log("helo");
+    expressionArray.pop();
+    // console.log(expressionArray);
 
     expressString = expressString.substring(0, expressString.length - 1);
     display(expressString);
@@ -51,7 +69,7 @@ var startCalculation = (function() {
 
   var conCat_ = exp => {
     expressionArray.push(exp);
-    console.log(expressionArray);
+    // console.log(expressionArray);
 
     expressString = expressString.concat(exp);
     display(expressString);
@@ -61,33 +79,4 @@ var startCalculation = (function() {
     // console.log(el);
     result.innerHTML = el;
   }
-
-  return {
-    queryArray: expressionArray,
-    // queryExp: expressString,
-    test: 100
-  };
-})(updateAns);
-
-var updateAns = (function(startCalc) {
-  ans.addEventListener("click", () => {
-    var express = "";
-    var exp = startCalc.queryArray;
-
-    exp.forEach(el => {
-      express = express.concat(el);
-    });
-
-    result.innerHTML = "";
-    history.innerHTML = "";
-    var ans = eval(express);
-    hist.innerHTML = express;
-    console.log(express);
-    result.innerHTML = ans;
-  });
-
-  c.addEventListener("click", () => {
-    result.innerHTML = "";
-    hist.innerHTML = "";
-  });
-})(startCalculation);
+})();
