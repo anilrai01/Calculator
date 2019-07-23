@@ -1,57 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Simple Calculator</title>
-</head>
-<link rel="stylesheet" href="style.css">
-<body>
-	<div class="container">
-		<div class="calcBody">
-			<div class="dispScreen">
-				<span id="expression"></span>
-				<span id="operator"></span>
-				<span id="result"></span>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Simple Calculator</title>
+  </head>
+  <link rel="stylesheet" href="style.css" />
+  <body>
+    <div class="container">
+      <div class="calcBody">
+        <div class="dispScreen">
+          <div class="history"></div>
+          <div id="result"></div>
+        </div>
 
-			</div>
-			<div class="btns">
-				<div class="row1">
+        <div class="btns">
+          <div class="row1">
+            <div class="btn-operator-c gg" data-action="cancel">C</div>
+            <div class="btn-operator-ce gg" data-action="clear">CE</div>
+            <div class="btn-operator gg" data-action="percent">%</div>
+            <div class="btn-operator" data-action="divide">/</div>
+          </div>
+          <div class="row2">
+            <div class="btn-num">7</div>
+            <div class="btn-num">8</div>
+            <div class="btn-num">9</div>
+            <div class="btn-operator" data-action="multiply">*</div>
+          </div>
+          <div class="row3">
+            <div class="btn-num">4</div>
+            <div class="btn-num">5</div>
+            <div class="btn-num">6</div>
+            <div class="btn-operator" data-action="add">+</div>
+          </div>
+          <div class="row4">
+            <div class="btn-num">1</div>
+            <div class="btn-num">2</div>
+            <div class="btn-num">3</div>
+            <div class="btn-operator" data-action="subtract">-</div>
+          </div>
+          <div class="row5">
+            <div class="btn-num test" data-number>0</div>
+            <!-- <div class="btn-num">0</div> -->
 
-					<div class="btn-operator gg" data-action="cancel">C</div>
-					<div class="btn-operator gg" data-action="clear">CE</div>
-					<div class="btn-operator gg" data-action="percent">%</div>
-					<div class="btn-operator" data-action="divide">/</div>
-				</div>
-				<div class="row2">
-					<div class="btn-num">7</div>
-					<div class="btn-num">8</div>
-					<div class="btn-num">9</div>
-					<div class="btn-operator"  data-action="multiply">x</div>
-				</div>
-				<div class="row3">
-					<div class="btn-num">4</div>
-					<div class="btn-num">5</div>
-					<div class="btn-num">6</div>
-					<div class="btn-operator"  data-action="add">+</div>
-				</div>
-				<div class="row4">
-					<div class="btn-num">1</div>
-					<div class="btn-num">2</div>
-					<div class="btn-num">3</div>
-					<div class="btn-operator" data-action="subtract">-</div>
-
-				</div>
-				<div class="row5">
-					<div class="btn-num test" data-number>0</div>
-					<!-- <div class="btn-num">0</div> -->
-
-					<div class="btn-num" id="sagar">.</div>
-					<div class="btn-operator" data-action="equal">=</div>
-
-				</div>
-			</div>
-		</div>
-	</div>
-	<script src="app.js"></script>
-</body>
+            <div class="btn-num">.</div>
+            <div class="btn-operator-ans" data-action="equal">=</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
 </html>
