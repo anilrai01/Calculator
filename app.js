@@ -15,10 +15,7 @@ var startCalculation = (function() {
 
   numArray.forEach(el =>
     el.addEventListener("click", () => {
-      if (
-        expressionArray[expressionArray.length - 1] === "." &&
-        el.innerHTML === "."
-      ) {
+      if (expressionArray.includes(".") && el.innerHTML === ".") {
         return -1;
       } else {
         hist.innerHTML = "";
