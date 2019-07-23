@@ -21,6 +21,7 @@ var startCalculation = (function() {
       ) {
         return -1;
       } else {
+        hist.innerHTML = "";
         conCat_(el.innerHTML);
       }
     })
@@ -31,6 +32,7 @@ var startCalculation = (function() {
       if (expressionArray[expressionArray.length - 1] === el.innerHTML) {
         return -1;
       } else {
+        hist.innerHTML = "";
         conCat_(el.innerHTML);
       }
     })
@@ -44,8 +46,7 @@ var startCalculation = (function() {
     result.innerHTML = "";
     hist.innerHTML = "";
 
-    expressionArray = [];
-    expressString = "";
+    reset();
     console.log(expressString);
     console.log(expressionArray);
   });
@@ -56,12 +57,15 @@ var startCalculation = (function() {
     var ans = eval(expressString);
     hist.innerHTML = expressString;
     result.innerHTML = ans;
+    // Resetting Array and Strings
+    expressionArray = [ans];
+    console.log(expressionArray);
+    expressString = String(ans);
+    console.log(expressString);
   });
 
   var clearScreen = () => {
-    // console.log("helo");
     expressionArray.pop();
-    // console.log(expressionArray);
 
     expressString = expressString.substring(0, expressString.length - 1);
     display(expressString);
@@ -69,14 +73,17 @@ var startCalculation = (function() {
 
   var conCat_ = exp => {
     expressionArray.push(exp);
-    // console.log(expressionArray);
 
     expressString = expressString.concat(exp);
     display(expressString);
   };
 
   function display(el) {
-    // console.log(el);
     result.innerHTML = el;
+  }
+
+  function reset() {
+    expressString = "";
+    expressionArray = [];
   }
 })();
